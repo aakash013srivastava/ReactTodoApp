@@ -36,12 +36,13 @@ function AddTodo({todo,setTodo}){
   function handleSubmit(e){
     e.preventDefault()
     setTodo([...todo,{item:e.target.elements.inputTodo.value,id:todo.length+1}])
+    e.target.elements.inputTodo.value= ''
   }
 
-  return (<div className="todoCard">
+  return (<div>
     <form onSubmit={handleSubmit}>
     <input type="text" id="inputTodo"/>
-    <button type="submit" >Add Item</button>
+    <button type="submit" id="submitButton">Add Item</button>
     </form>
   </div>)
 }
